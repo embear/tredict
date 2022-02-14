@@ -2,18 +2,20 @@
 SOURCES = $(filter-out %.min.js, $(wildcard *.js))
 TARGETS = $(SOURCES:.js=.min.js)
 
+SILENT = @
 # Configure minifier
 MINIFIER = uglifyjs
-MINIFIER_ARGS =
-#MINIFIER_ARGS += --compress
-MINIFIER_ARGS += --mangle
+#MINIFIER += --compress
+MINIFIER += --mangle
 
 .PHONY: all clean
 
 all: $(TARGETS)
 
 clean:
-	rm -vf $(TARGETS)
+	$(SILENT)echo "Cleaning"
+	$(SILENT)rm -vf $(TARGETS)
 
 %.min.js: %.js
-	$(MINIFIER) $(MINIFIER_ARGS) --output $@ $<
+	$(SILENT)echo "Building $@"
+	$(SILENT)cpp $< | grep -v '^#' | $(MINIFIER) --output $@
