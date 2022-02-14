@@ -19,21 +19,25 @@
 //   4. Take the fourth root of the result
 
 function np(data) {
-  if (!data.power) {
+  // extract relevant data
+  const { duration, seriesSampled: { data: { power } } } = data;
+
+  // guard
+  if (power.length === 0) {
     return null;
   }
 
   // window length in seconds
-  var window_length = 30;
+  const window_length = 30;
 
   // extrapolate data
   var extrapolated_power = [];
-  var seconds_per_sample = Math.round(data.duration / data.seriesSampled.data.power.length);
+  var seconds_per_sample = (duration / power.length).toFixed();
   var write_idx;
   var read_idx = -1;
-  for (write_idx = 0; write_idx < data.duration; write_idx++) {
+  for (write_idx = 0; write_idx < duration; write_idx++) {
     read_idx += write_idx % seconds_per_sample === 0 ? 1 : 0;
-    extrapolated_power.push(data.seriesSampled.data.power[read_idx]);
+    extrapolated_power.push(power[read_idx]);
   }
 
   // initial window
@@ -47,7 +51,7 @@ function np(data) {
   var remove_idx = 0;
   var average_counter = 2;
   var average_of_windows = window_sum;
-  while (add_idx < data.duration) {
+  while (add_idx < duration) {
     window_sum += extrapolated_power[add_idx++];
     window_sum -= extrapolated_power[remove_idx++];
     var window_average = window_sum / window_length;

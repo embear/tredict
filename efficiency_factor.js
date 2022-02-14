@@ -7,11 +7,15 @@
 #include "normalized_power.js"
 
 function ef(data) {
-  if (!data.heartrate || !data.power) {
+  // extract relevant data
+  const {heartrate, power} = data;
+
+  // guard
+  if (!heartrate || !power) {
     return null;
   }
 
-  return data.heartrate / np(data);
+  return (heartrate / np(data));
 }
 
 // Additional code when added to tredict:

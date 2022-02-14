@@ -5,12 +5,16 @@
 // Vance, Jim. "Run with Power", page 99
 
 function ei(data) {
-  if (!data.speed || !data.power || data.power == 0) {
+  // extract relevant data
+  const {speed, power} = data;
+
+  // guard
+  if (!speed || !power || power == 0) {
     return null;
   }
 
   // NOTE: speed is in m/min
-  return data.speed * 60 / data.power;
+  return (speed * 60 / power);
 }
 
 // Additional code when added to tredict:
