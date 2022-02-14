@@ -17,10 +17,6 @@
 //   2. Raise these values to the fourth power
 //   3. Average the resulting values
 //   4. Take the fourth root of the result
-//
-// Additional code when added to tredict:
-//
-// `return np(this)`
 
 function np(data) {
   if (!data.power) {
@@ -60,3 +56,7 @@ function np(data) {
 
   return Math.pow(average_of_windows, 1/4);
 }
+
+// Additional code when added to tredict:
+//
+//APPEND return Number(np(this).toFixed(1))
