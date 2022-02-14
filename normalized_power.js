@@ -1,6 +1,22 @@
 // Normalized Power
 //
+// Vance, Jim. "Run with Power", page 46
+//
 // https://www.mathworks.com/matlabcentral/cody/problems/3064-cycling-normalized-power
+//
+// In cycling, a power meter is an indispensable tool to record power output
+// (in Watts) and measure fitness gains and performance metrics. When analyzing
+// the data though, many different workouts can yield approximately the same
+// average power, despite major differences between workouts (e.g., a long
+// steady effort vs. sprints or intervals). Normalized power (NP) is a method
+// to measure the effect of more intense efforts on the overall workout. NP is
+// calculated by the following four steps (from Training and Racing with
+// a Power Meter by Allen and Coggan):
+//
+//   1. Calculate a 30-second rolling average of the power data
+//   2. Raise these values to the fourth power
+//   3. Average the resulting values
+//   4. Take the fourth root of the result
 //
 // Additional code when added to tredict:
 //

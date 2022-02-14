@@ -1,8 +1,8 @@
 // Efficiency Index
 //
-// EI = speed [m/min] / power [W]
+// EI = average speed / average power
 //
-// Vance, Jim: Run with Power
+// Vance, Jim. "Run with Power", page 99
 //
 // Additional code when added to tredict:
 //
@@ -13,5 +13,6 @@ function ei(data) {
     return null;
   }
 
+  // NOTE: speed is in m/min
   return data.speed * 60 / data.power;
 }
