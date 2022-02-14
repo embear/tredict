@@ -1,8 +1,12 @@
 // Normalized Power
 //
 // https://www.mathworks.com/matlabcentral/cody/problems/3064-cycling-normalized-power
+//
+// Additional code when added to tredict:
+//
+// `return np(this)`
 
-function normalized_power(data) {
+function np(data) {
   if (!data.power) {
     return null;
   }
@@ -27,7 +31,7 @@ function normalized_power(data) {
     window_sum += extrapolated_power[add_idx++];
   }
 
-  // slide the window
+  // slide the window and calculate the rolling average
   var remove_idx = 0;
   var average_counter = 2;
   var average_of_windows = window_sum;
