@@ -18,7 +18,7 @@
 //   3. Average the resulting values
 //   4. Take the fourth root of the result
 
-function np(data) {
+function NP(data) {
   // extract relevant data
   const { duration, seriesSampled: { data: { power } } } = data;
 
@@ -62,5 +62,4 @@ function np(data) {
 }
 
 // Additional code when added to tredict:
-//
-//APPEND return Number(np(this).toFixed(1))
+//APPEND return Number(NP(this).toFixed(1))

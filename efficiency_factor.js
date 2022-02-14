@@ -6,7 +6,7 @@
 
 #include "normalized_power.js"
 
-function ef(data) {
+function EF(data) {
   // extract relevant data
   const {heartrate, power} = data;
 
@@ -15,9 +15,8 @@ function ef(data) {
     return null;
   }
 
-  return (heartrate / np(data));
+  return (heartrate / NP(data));
 }
 
 // Additional code when added to tredict:
-//
-//APPEND return Number(ef(this).toFixed(2))
+//APPEND return Number(EF(this).toFixed(2))

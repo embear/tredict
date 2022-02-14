@@ -4,7 +4,7 @@
 //
 // Vance, Jim. "Run with Power", page 99
 
-function ei(data) {
+function EI(data) {
   // extract relevant data
   const {speed, power} = data;
 
@@ -18,5 +18,4 @@ function ei(data) {
 }
 
 // Additional code when added to tredict:
-//
-//APPEND return Number(ei(this).toFixed(2))
+//APPEND return Number(EI(this).toFixed(2))
