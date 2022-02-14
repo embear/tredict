@@ -15,7 +15,7 @@ function EF(data) {
     return null;
   }
 
-  return (heartrate / NP(data));
+  return (NP(data) / heartrate);
 }
 
 // Additional code when added to tredict:
