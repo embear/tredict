@@ -6,6 +6,8 @@ SILENT = @
 # Configure minifier
 MINIFIER = uglifyjs
 #MINIFIER += --compress
+MINIFIER += --validate
+MINIFIER += --warn
 MINIFIER += --mangle
 
 .PHONY: all clean
@@ -18,4 +20,7 @@ clean:
 
 %.min.js: %.js
 	$(SILENT)echo "Building $@"
-	$(SILENT)cpp $< | grep -v '^#' | $(MINIFIER) --output $@
+	$(SILENT)rm -f $@
+	$(SILENT)grep '//\s*PREPEND' $< | sed -e 's%//\s*PREPEND\s*%%' >> $@
+	$(SILENT)cpp $< | grep -v '^#' | $(MINIFIER)                   >> $@
+	$(SILENT)grep '//\s*APPEND' $< | sed -e 's%//\s*APPEND\s*%%'   >> $@
