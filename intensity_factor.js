@@ -4,18 +4,16 @@
 //
 // Vance, Jim. "Run with Power", page 71
 
-#include "normalized_power.js"
-
 function IF(data) {
   // extract relevant data
-  const {ftp, power} = data;
+  const {ftp, powerPerceived} = data;
 
   // guard
-  if (!ftp || !power) {
+  if (!ftp || ftp === 0 || !powerPerceived) {
     return null;
   }
 
-  return (NP(data) / ftp);
+  return (powerPerceived / ftp);
 }
 
 // Additional code when added to tredict:

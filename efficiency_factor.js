@@ -4,18 +4,16 @@
 //
 // Vance, Jim. "Run with Power", page 98
 
-#include "normalized_power.js"
-
 function EF(data) {
   // extract relevant data
-  const {heartrate, power} = data;
+  const {heartrate, powerPerceived} = data;
 
   // guard
-  if (!heartrate || !power) {
+  if (!heartrate || heartrate === 0 || !powerPerceived) {
     return null;
   }
 
-  return (NP(data) / heartrate);
+  return (powerPerceived / heartrate);
 }
 
 // Additional code when added to tredict:
