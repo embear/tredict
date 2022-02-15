@@ -9,7 +9,7 @@ function EI(data) {
   const {speed, power} = data;
 
   // guard
-  if (!speed || !power || power == 0) {
+  if (!speed || !power || power === 0) {
     return null;
   }
 
