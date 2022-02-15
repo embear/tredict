@@ -9,6 +9,7 @@ MINIFIER = uglifyjs
 MINIFIER += --validate
 MINIFIER += --warn
 MINIFIER += --mangle
+#MINIFIER += --beautify
 
 .PHONY: all clean
 
