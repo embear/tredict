@@ -24,8 +24,8 @@ function IF(data) {
     return null;
   }
 
-  return (powerPerceived / ftp);
+  return (powerPerceived / ftp)
 }
 
 // Additional code when added to tredict:
-//APPEND return Number(IF(this).toFixed(2))
+//APPEND return IF(this).toFixed(2)
