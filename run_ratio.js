@@ -5,14 +5,15 @@ function RR(data) {
   const run_threshold = 120;
   const walk_threshold = 40;
 
+  // guard
+  if (!data.hasOwnProperty('seriesSampled') ||
+      !data.seriesSampled.data.hasOwnProperty('cadence')) {
+    return null;
+  }
+
   // extract relevant data
   const { seriesSampled: { data: { cadence } } } = data;
   const samples = cadence.length;
-
-  // guard
-  if (samples === 0) {
-    return null;
-  }
 
   // put samples to bins
   var idx;

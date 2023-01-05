@@ -19,20 +19,21 @@
 //   4. Take the fourth root of the result
 
 function NP(data) {
-  // extract relevant data
-  const { duration, seriesSampled: { data: { power } } } = data;
-
   // guard
-  if (power.length === 0) {
+  if (!data.hasOwnProperty('seriesSampled') ||
+      !data.seriesSampled.data.hasOwnProperty('power')) {
     return null;
   }
+
+  // extract relevant data
+  const { duration, seriesSampled: { data: { power } } } = data;
 
   // window length in seconds
   const window_length = 30;
 
   // extrapolate data
   var extrapolated_power = [];
-  var seconds_per_sample = (duration / power.length).toFixed();
+  const seconds_per_sample = (duration / power.length).toFixed();
   var write_idx;
   var read_idx = -1;
   for (write_idx = 0; write_idx < duration; write_idx++) {

@@ -14,7 +14,8 @@
 
 function RSS(data) {
   // guard
-  if (!data.seriesSampled.data.hasOwnProperty('power')) {
+  if (!data.hasOwnProperty('seriesSampled') ||
+      !data.seriesSampled.data.hasOwnProperty('power')) {
     return null;
   }
 
