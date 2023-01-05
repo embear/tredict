@@ -13,8 +13,8 @@ function EF(data) {
     return null;
   }
 
-  return (powerPerceived / heartrate)
+  return (powerPerceived / heartrate).toFixed(2)
 }
 
 // Additional code when added to tredict:
-//APPEND return EF(this).toFixed(2)
+//APPEND return EF(this)

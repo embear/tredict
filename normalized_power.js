@@ -58,8 +58,8 @@ function NP(data) {
     average_of_windows += (Math.pow(window_average, 4) - average_of_windows) / average_counter++;
   }
 
-  return Math.pow(average_of_windows, 1/4)
+  return (Math.pow(average_of_windows, 1/4)).toFixed(1)
 }
 
 // Additional code when added to tredict:
-//APPEND return NP(this).toFixed(1)
+//APPEND return NP(this)

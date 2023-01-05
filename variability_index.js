@@ -23,8 +23,8 @@ function VI(data) {
     return null;
   }
 
-  return (powerPerceived / power)
+  return (powerPerceived / power).toFixed(2)
 }
 
 // Additional code when added to tredict:
-//APPEND return VI(this).toFixed(2)
+//APPEND return VI(this)

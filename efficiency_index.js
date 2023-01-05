@@ -14,8 +14,8 @@ function EI(data) {
   }
 
   // NOTE: speed is in m/min
-  return (speed * 60 / power)
+  return (speed * 60 / power).toFixed(2)
 }
 
 // Additional code when added to tredict:
-//APPEND return EI(this).toFixed(2)
+//APPEND return EI(this)

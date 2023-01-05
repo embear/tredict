@@ -30,8 +30,8 @@ function RR(data) {
   bins.walk /= samples;
   bins.stand /= samples;
 
-  return bins
+  return (bins.run * 100).toFixed()
 }
 
 // Additional code when added to tredict:
-//APPEND return (RR(this).run * 100).toFixed()
+//APPEND return RR(this)
