@@ -19,14 +19,21 @@
 //   4. Take the fourth root of the result
 
 function NP(data) {
-  // guard
+  // check if data series is available
   if (!data.hasOwnProperty('seriesSampled') ||
       !data.seriesSampled.data.hasOwnProperty('power')) {
     return null;
   }
 
   // extract relevant data
-  const { duration, seriesSampled: { data: { power } } } = data;
+  const {
+    duration,
+    seriesSampled: {
+      data: {
+        power
+      }
+    }
+  } = data;
 
   // window length in seconds
   const window_length = 30;
@@ -59,8 +66,8 @@ function NP(data) {
     average_of_windows += (Math.pow(window_average, 4) - average_of_windows) / average_counter++;
   }
 
-  return (Math.pow(average_of_windows, 1/4)).toFixed(1)
+  return (Math.pow(average_of_windows, 1/4)).toFixed(1);
 }
 
 // Additional code when added to tredict:
-//APPEND return NP(this)
+//APPEND return NP(this);

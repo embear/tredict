@@ -17,15 +17,20 @@
 
 function IF(data) {
   // extract relevant data
-  const {ftp, powerPerceived} = data;
+  const {
+    ftp,
+    powerPerceived
+  } = data;
 
   // guard
-  if (!ftp || ftp === 0 || !powerPerceived) {
+  if (!ftp ||
+      ftp === 0 ||
+      !powerPerceived) {
     return null;
   }
 
-  return (powerPerceived / ftp).toFixed(2)
+  return (powerPerceived / ftp).toFixed(2);
 }
 
 // Additional code when added to tredict:
-//APPEND return IF(this)
+//APPEND return IF(this);

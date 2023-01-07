@@ -41,7 +41,7 @@ function RSS(data) {
       ftp: ftp,
       seriesSampled: {
         data: {
-          power: power
+          power
         }
       }
     } = data;
@@ -93,4 +93,4 @@ function RSS(data) {
 }
 
 // Additional code when added to tredict:
-//APPEND return RSS(this)
+//APPEND return RSS(this);

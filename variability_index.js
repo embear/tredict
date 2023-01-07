@@ -16,15 +16,20 @@
 
 function VI(data) {
   // extract relevant data
-  const {power, powerPerceived} = data;
+  const {
+    power,
+    powerPerceived
+  } = data;
 
   // guard
-  if (!power || power === 0 || !powerPerceived) {
+  if (!power ||
+      power === 0 ||
+      !powerPerceived) {
     return null;
   }
 
-  return (powerPerceived / power).toFixed(2)
+  return (powerPerceived / power).toFixed(2);
 }
 
 // Additional code when added to tredict:
-//APPEND return VI(this)
+//APPEND return VI(this);

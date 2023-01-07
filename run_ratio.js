@@ -5,14 +5,21 @@ function RR(data) {
   const run_threshold = 120;
   const walk_threshold = 40;
 
-  // guard
+  // check if data series is available
   if (!data.hasOwnProperty('seriesSampled') ||
       !data.seriesSampled.data.hasOwnProperty('cadence')) {
     return null;
   }
 
   // extract relevant data
-  const { seriesSampled: { data: { cadence } } } = data;
+  const {
+    seriesSampled: {
+      data: {
+        cadence
+      }
+    }
+  } = data;
+
   const samples = cadence.length;
 
   // put samples to bins
@@ -31,8 +38,8 @@ function RR(data) {
   bins.walk /= samples;
   bins.stand /= samples;
 
-  return (bins.run * 100).toFixed()
+  return (bins.run * 100).toFixed();
 }
 
 // Additional code when added to tredict:
-//APPEND return RR(this)
+//APPEND return RR(this);
